@@ -18,7 +18,6 @@ type Response struct {
 func main() {
 	var (
 		properties []Property
-		result     int
 	)
 
 	file, _ := os.Open("data-20190514T0100.json")
@@ -28,8 +27,7 @@ func main() {
 		panic("Ошибка JSON")
 	}
 
-	result = getSumId(properties)
-	printResult(result)
+	printResult(getSumId(properties))
 }
 
 func printResult(result int) {
