@@ -23,14 +23,16 @@ func main() {
 
 	file, _ := os.Open("data-20190514T0100.json")
 	dataFromFile, _ := io.ReadAll(file)
-
-	err := json.Unmarshal([]byte(dataFromFile), &properties)
+	err := json.Unmarshal(dataFromFile, &properties)
 	if err != nil {
 		panic("Ошибка JSON")
 	}
 
 	result = getSumId(properties)
+	printResult(result)
+}
 
+func printResult(result int) {
 	response := Response{
 		Sum: result,
 	}
